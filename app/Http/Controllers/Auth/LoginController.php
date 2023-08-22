@@ -5,9 +5,23 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
+    public function show(Request $request)
+    {   
+        $user=DB::table('users')->where('account', $request->account)->first();
+        if(empty($user)){
+            return '帳號錯誤';
+        }
+        if($user->status==0){
+            return '帳號審核中';
+        }
+        return 'account';
+    }
     /*
     |--------------------------------------------------------------------------
     | Login Controller

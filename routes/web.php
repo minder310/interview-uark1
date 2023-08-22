@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/neworg',[App\Http\Controllers\Auth\NewOrgController::class, 'index'])->name('neworg');
 Route::post('/neworg',[App\Http\Controllers\Auth\NewOrgController::class, 'store'])->name('neworg.store');
+Route::post('/show',[App\Http\Controllers\Auth\LoginController::class, 'show'])->name('show');
