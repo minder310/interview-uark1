@@ -28,7 +28,7 @@ class NewOrgController extends Controller
         $org->org_no = $request->org_no;
         $org->save();
 
-        // 導向到首頁
+        // 導向首頁
         return redirect()->route('home');
     }
 
