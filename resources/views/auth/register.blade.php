@@ -19,7 +19,7 @@
 
                                 @error('org_id')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong><a href="{{'neworg'}}">請點選此處增加機構</a></strong>
                                     </span>
                                 @enderror
                             </div>

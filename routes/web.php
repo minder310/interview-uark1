@@ -20,3 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/neworg',[App\Http\Controllers\Auth\NewOrgController::class, 'index'])->name('neworg');
+Route::post('/neworg',[App\Http\Controllers\Auth\NewOrgController::class, 'store'])->name('neworg.store');

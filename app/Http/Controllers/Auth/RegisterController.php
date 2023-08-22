@@ -50,8 +50,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            // 這裡是驗證規則
-            'org_id' => ['required', 'integer', 'min:1'], 
+            // 這裡是驗證規則，'exists:orgs,org_no'是與資料庫串聯並且驗證是否有這個號碼。
+            'org_id' => ['required', 'integer', 'min:1','exists:orgs,org_no'], 
             'birthday' => ['required', 'date'], // 'date' => 'Y-m-d'           
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
