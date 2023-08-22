@@ -25,6 +25,7 @@
                             </div>
                         </div>
                         <!-- 看看是哪間機構結束 -->
+
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -38,6 +39,22 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- account -->
+                        <div class="row mb-3">
+                            <label for="account" class="col-md-4 col-form-label text-md-end">{{ __('account') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="account" type="text" class="form-control @error('account') is-invalid @enderror" name="account" value="{{ old('account') }}" required autocomplete="account" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <!-- account結束 -->
+
                         <!-- 生日日期。 -->
                         <div class="row mb-3">
                             <label for="birthday" class="col-md-4 col-form-label text-md-end">{{ __('birthday') }}</label>

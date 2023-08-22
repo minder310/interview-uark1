@@ -50,9 +50,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            // 這裡是驗證規則
+            'org_id' => ['required', 'integer', 'min:1'], 
+            'birthday' => ['required', 'date'], // 'date' => 'Y-m-d'           
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'account' => ['required', 'string', 'max:255', 'unique:users'],
         ]);
     }
 
@@ -65,8 +69,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
+            // 這裡是建立新內容
+            'org_id' => $data['org_id'],
+            'birthday' => $data['birthday'],
             'name' => $data['name'],
             'email' => $data['email'],
+            'account' => $data['account'],
             'password' => Hash::make($data['password']),
         ]);
     }
