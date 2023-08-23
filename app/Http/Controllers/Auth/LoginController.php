@@ -12,13 +12,14 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     public function show(Request $request)
-    {   
-        $user=DB::table('users')->where('account', $request->account)->first();
-        if(empty($user)){
+    {
+        $user = DB::table('users')->where('account', $request->account)->first();
+        if (empty($user)) {
             return '帳號錯誤';
-        }
-        if($user->status==0){
+        } else if ($user->status == 0) {
             return '帳號審核中';
+        } else if (bcrypt($user->password) != $user->password) {
+            return '密碼錯誤';
         }
         return 'account';
     }
